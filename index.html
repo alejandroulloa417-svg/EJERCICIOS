@@ -54,10 +54,19 @@
             font-size: 16px;
             cursor: pointer;
             transition: 0.3s;
+            margin-top: 10px;
         }
 
         button:hover{
             background: #023e8a;
+        }
+
+        #btnTest{
+            background: #00b4d8;
+        }
+
+        #btnTest:hover{
+            background: #0096c7;
         }
 
         #resultado{
@@ -96,6 +105,11 @@
 
         <button id="ejecutar">
             Ejecutar
+        </button>
+
+        <!-- BOTON TEST -->
+        <button id="btnTest">
+            Ejecutar Tests
         </button>
 
         <div id="resultado"></div>
@@ -151,6 +165,15 @@
             }
 
         });
+
+        // BOTON TEST
+        document
+            .getElementById("btnTest")
+            .addEventListener("click", () => {
+
+                alert("Los tests se ejecutan desde la terminal usando: npm test");
+
+            });
 
     </script>
 
