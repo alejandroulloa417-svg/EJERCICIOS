@@ -1,11 +1,14 @@
 {
- "name": "FLOWCODEALEJANDRO",
- "version": "1.0.0",
- "type": "module",
- "description": "primera aplicacion Alejandro Flow",
- "scripts": {
- "start": "node src/app.js",
- "test": "node test/app.test.js",
- "build": "echo `paso omitir para produccion`"
- }
+  "name": "FLOWCODEALEJANDRO",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "primera aplicacion Alejandro Flow",
+  "scripts": {
+    "start": "node src/app.js",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "build": "echo paso omitir para produccion"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
 }
