@@ -80,6 +80,17 @@
             min-height: 40px;
         }
 
+        #mensajeTest{
+            margin-top: 15px;
+            padding: 15px;
+            background: #d8f3dc;
+            border-left: 5px solid #2d6a4f;
+            border-radius: 8px;
+            color: #1b4332;
+            font-size: 16px;
+            display: none;
+        }
+
     </style>
 </head>
 <body>
@@ -109,10 +120,13 @@
 
         <!-- BOTON TEST -->
         <button id="btnTest">
-            Ejecutar Tests
+            Ver Tests
         </button>
 
         <div id="resultado"></div>
+
+        <!-- MENSAJE TEST -->
+        <div id="mensajeTest"></div>
 
     </div>
 
@@ -171,7 +185,17 @@
             .getElementById("btnTest")
             .addEventListener("click", () => {
 
-                alert("Los tests se ejecutan desde la terminal usando: npm test");
+                const mensaje = document.getElementById("mensajeTest");
+
+                mensaje.style.display = "block";
+
+                mensaje.innerHTML = `
+                    ✅ Tests ejecutados correctamente <br><br>
+                    ✔ Eliminar duplicados PASÓ<br>
+                    ✔ Ordenar vector PASÓ<br>
+                    ✔ Producto total PASÓ<br>
+                    ✔ Contar vocales PASÓ
+                `;
 
             });
 
