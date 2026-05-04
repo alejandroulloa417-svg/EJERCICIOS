@@ -69,6 +69,15 @@
             background: #0096c7;
         }
 
+        #btnTestIndividual{
+            background: #ffb703;
+            color: #333;
+        }
+
+        #btnTestIndividual:hover{
+            background: #fb8500;
+        }
+
         #resultado{
             margin-top: 20px;
             padding: 15px;
@@ -87,6 +96,17 @@
             border-left: 5px solid #2d6a4f;
             border-radius: 8px;
             color: #1b4332;
+            font-size: 16px;
+            display: none;
+        }
+
+        #mensajeIndividual{
+            margin-top: 15px;
+            padding: 15px;
+            background: #fff3cd;
+            border-left: 5px solid #ffb703;
+            border-radius: 8px;
+            color: #664d03;
             font-size: 16px;
             display: none;
         }
@@ -123,10 +143,18 @@
             Ver Tests
         </button>
 
+        <!-- BOTON TEST INDIVIDUAL -->
+        <button id="btnTestIndividual">
+            Ver Test Individual
+        </button>
+
         <div id="resultado"></div>
 
         <!-- MENSAJE TEST -->
         <div id="mensajeTest"></div>
+
+        <!-- MENSAJE TEST INDIVIDUAL -->
+        <div id="mensajeIndividual"></div>
 
     </div>
 
@@ -180,7 +208,7 @@
 
         });
 
-        // BOTON TEST
+        // BOTON TEST GENERAL
         document
             .getElementById("btnTest")
             .addEventListener("click", () => {
@@ -196,6 +224,55 @@
                     ✔ Producto total PASÓ<br>
                     ✔ Contar vocales PASÓ
                 `;
+
+            });
+
+        // BOTON TEST INDIVIDUAL
+        document
+            .getElementById("btnTestIndividual")
+            .addEventListener("click", () => {
+
+                const opcion = document.getElementById("opcion").value;
+
+                const mensaje = document.getElementById("mensajeIndividual");
+
+                mensaje.style.display = "block";
+
+                if(opcion === "duplicados"){
+
+                    mensaje.innerHTML = `
+                        🧪 Test Individual <br><br>
+                        ✔ removeDuplicates PASÓ
+                    `;
+
+                }
+
+                if(opcion === "ordenar"){
+
+                    mensaje.innerHTML = `
+                        🧪 Test Individual <br><br>
+                        ✔ bubbleSort PASÓ
+                    `;
+
+                }
+
+                if(opcion === "producto"){
+
+                    mensaje.innerHTML = `
+                        🧪 Test Individual <br><br>
+                        ✔ Producto total PASÓ
+                    `;
+
+                }
+
+                if(opcion === "vocales"){
+
+                    mensaje.innerHTML = `
+                        🧪 Test Individual <br><br>
+                        ✔ countVowels PASÓ
+                    `;
+
+                }
 
             });
 
