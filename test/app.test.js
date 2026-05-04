@@ -1,54 +1,54 @@
-import { saludar, despedir, estadosistema , sumar, restar, healthCheck } from "../src/app.js"
+import {
+    saludar,
+    despedir,
+    estadosistema,
+    sumar,
+    restar,
+    healthCheck,
+    removeDuplicates,
+    bubbleSort,
+    countVowels
+} from "../src/app.js";
 
-function ejecutarpruebas() {
-    let pasadas = 0;
-    let fallidas = 0;
+describe("Pruebas generales", () => {
 
-    const r1 = saludar("Raider")
-    if (r1.includes("Raider")) {
-        console.log("test 1 pasado: funcion saludar en codeRaider es correcta");
-        pasadas++;
-    } else {
-        console.log("test 1 fallido: ", r1);
-        fallidas++;
-    }
+    test("Saludar", () => {
+        expect(saludar("Raider")).toContain("Raider");
+    });
 
-    const actualEstado = estadosistema();
-    if (actualEstado.estado === "activo") {
-        console.log("test 2: pasado: estadosistema() funciona en coderider");
-        pasadas++;
-    } else {
-        console.log("test 2 fallido: ", estado, "en codeRider");
-        fallidas++;
-    }
-    
- 
-    if (fallidas > 0) process.exit(1); "fallidas"
-    const resultadoSuma = sumar(2, 3);
-    if (resultadoSuma === 5) {
-        console.log("test 3: pasado: sumar(2, 3) devuelve 5 en codeRider");
-        pasadas++;
-    } else {
-        console.log("test 3 fallido: sumar(2, 3) devuelve ", resultadoSuma, "en codeRider");
-        fallidas++;
-    }
-    const resultadoResta = restar(5, 3);
-    if (resultadoResta === 2) {
-        console.log("test 4: pasado: restar(5, 3) devuelve 2 en codeRider");
-        pasadas++;
-    } else {
-        console.log("test 4 fallido: restar(5, 3) devuelve ", resultadoResta, "en codeRider");
-        fallidas++;
-    }
-    const health = healthCheck();
-    if (health.status === "ok") {
-        console.log("test healthCheck: pasado");
-        pasadas++;
-    } else {
-        console.log("test healthCheck: fallido", health);
-        fallidas++;
-    }
-    console.log("\nResultados: " + pasadas + " pasadas, " + fallidas + "fallidas");
-}
+    test("Estado sistema", () => {
+        expect(estadosistema().estado).toBe("activo");
+    });
 
-ejecutarpruebas();
+    test("Sumar", () => {
+        expect(sumar(2,3)).toBe(5);
+    });
+
+    test("Restar", () => {
+        expect(restar(5,3)).toBe(2);
+    });
+
+    test("Health Check", () => {
+        expect(healthCheck().status).toBe("ok");
+    });
+
+});
+
+describe("Pruebas de arrays", () => {
+
+    test("Eliminar duplicados", () => {
+        expect(removeDuplicates([1,2,2,3,4,4]))
+            .toEqual([1,2,3,4]);
+    });
+
+    test("Ordenar vector", () => {
+        expect(bubbleSort([5,1,4,2]))
+            .toEqual([1,2,4,5]);
+    });
+
+    test("Contar vocales", () => {
+        expect(countVowels(["a","b","e","x","i"]))
+            .toBe(3);
+    });
+
+});
